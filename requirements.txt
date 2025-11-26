@@ -1,0 +1,10 @@
+pandas
+pyarrow
+fastparquet
+requests
+beautifulsoup4
+lxml
+pytest
+tqdm
+python-dotenv
+pyspark
