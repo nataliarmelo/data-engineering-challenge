@@ -45,3 +45,15 @@ for col in numeric_cols:
 
 # drop linhas absurdas
 df = df.dropna(subset=numeric_cols)
+
+
+#### Salvamento dos dados tratados                  
+processed = Path('02-academic_performance/data/processed')
+processed.mkdir(parents=True, exist_ok=True)
+
+PROCESS_PATH = processed / "students_performance.parquet"
+df_to_save = df.reset_index(drop=True).copy()
+
+df_to_save.to_parquet(str(PROCESS_PATH), engine="fastparquet", index=False)
+PROCESS_PATH
+print("Dados tratados salvos em:", PROCESS_PATH)
